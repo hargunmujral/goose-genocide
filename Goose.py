@@ -1,4 +1,4 @@
-# Goose Clicker Action Packed I
+# Goose Genocide!
 # Inspiration taken from "Cookie Clicker" by DashNet
 # Compatible with Windows, Linux and MacOSX
 # by @hargunmujral (Github)
@@ -7,7 +7,7 @@ import turtle
 
 window = turtle.Screen()
 window.setup(600, 594)
-window.title("Goose Clicker!")
+window.title("Goose Genocide!")
 window.bgpic("waterloo2.gif")
 
 window.register_shape("goose.gif")

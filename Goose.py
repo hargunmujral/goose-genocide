@@ -9,12 +9,34 @@ window = turtle.Screen()
 window.setup(600, 594)
 window.title("Goose Clicker!")
 window.bgpic("waterloo2.gif")
+
 window.register_shape("goose.gif")
+window.register_shape("shield.gif")
+window.register_shape("tool.gif")
+window.register_shape("warrior.gif")
 
 goose = turtle.Turtle()
 goose.shape("goose.gif")
 goose.speed(0)
 goose.goto(0, -120)
+
+shield = turtle.Turtle()
+shield.shape("shield.gif")
+shield.speed(0)
+shield.goto(223, 220)
+shield.clear()
+
+tool = turtle.Turtle()
+tool.shape("tool.gif")
+tool.speed(0)
+tool.goto(223, 153)
+tool.clear()
+
+warrior = turtle.Turtle()
+warrior.shape("warrior.gif")
+warrior.speed(0)
+warrior.goto(223, 86)
+warrior.clear()
 
 counter = 0
 
@@ -33,11 +55,15 @@ def click(x, y):
     text.write(f"Killed: {counter}", align="center", font=("Times New Roman", 30, "bold"))
 
 
-def grandma(x, y):
+def click2(x, y):
     global counter
-    while counter >= 100:
-        
+    counter += 2
+    text.clear()
+    text.write(f"Killed: {counter}", align="center", font=("Times New Roman", 30, "bold"))
 
+
+
+       
 goose.onclick(click)
 
 window.mainloop()

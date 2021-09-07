@@ -40,6 +40,8 @@ warrior.clear()
 
 counter = 0
 boost1 = False
+boost2 = False
+boost3 = False
 
 text = turtle.Turtle()
 text.hideturtle()
@@ -59,11 +61,24 @@ def null(x, y):
     text.clear()
     text.write(f"Killed: {counter}", align="center", font=("Times New Roman", 30, "bold"))
 
-def click2(x, y):
+def click1(x, y):
     global counter
-    counter += 2
+    counter += 5
     text.clear()
     text.write(f"Killed: {counter}", align="center", font=("Times New Roman", 30, "bold"))
+
+def click2(x, y):
+    global counter
+    counter += 20
+    text.clear()
+    text.write(f"Killed: {counter}", align="center", font=("Times New Roman", 30, "bold"))
+
+def click3(x, y):
+    global counter
+    counter += 50
+    text.clear()
+    text.write(f"Killed: {counter}", align="center", font=("Times New Roman", 30, "bold"))
+
 
 def power1(x, y):
     global counter
@@ -73,18 +88,46 @@ def power1(x, y):
     text.clear()
     text.write(f"Killed: {counter}", align="center", font=("Times New Roman", 30, "bold"))      
 
+def power2(x, y):
+    global counter
+    global boost2
+    counter -= 500
+    boost2 = True
+    text.clear()
+    text.write(f"Killed: {counter}", align="center", font=("Times New Roman", 30, "bold"))      
+
+def power3(x, y):
+    global counter
+    global boost3
+    counter -= 2000
+    boost3 = True
+    text.clear()
+    text.write(f"Killed: {counter}", align="center", font=("Times New Roman", 30, "bold"))      
 
 
-while boost1 == False:
+while boost1 == False and boost2 == False and boost3 == False:
     if counter < 100:
         goose.onclick(click)
-    elif counter >= 100:
+    elif counter >= 100 and counter < 500:
         shield.onclick(power1)
+    
         
 
-while boost1 == True:
-    goose.onclick(click2)
+while boost1 == True and boost2 == False and boost3 == False:
+    goose.onclick(click1)
     shield.onclick(null)
+    if  counter >= 500 and counter < 2000:
+        tool.onclick(power2)
+
+while boost1 == True and boost2 == True and boost3 == False:
+    goose.onclick(click2)
+    tool.onclick(null)
+    if counter >= 2000:
+        warrior.onclick(power3)
+
+while boost1 == True and boost2 == True and boost3 == True:
+    goose.onclick(click3)
+    warrior.onclick(null)
 
 window.mainloop()
 

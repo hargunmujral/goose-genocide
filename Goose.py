@@ -39,6 +39,7 @@ warrior.goto(223, 86)
 warrior.clear()
 
 counter = 0
+boost1 = False
 
 text = turtle.Turtle()
 text.hideturtle()
@@ -54,6 +55,9 @@ def click(x, y):
     text.clear()
     text.write(f"Killed: {counter}", align="center", font=("Times New Roman", 30, "bold"))
 
+def null(x, y):
+    text.clear()
+    text.write(f"Killed: {counter}", align="center", font=("Times New Roman", 30, "bold"))
 
 def click2(x, y):
     global counter
@@ -61,10 +65,26 @@ def click2(x, y):
     text.clear()
     text.write(f"Killed: {counter}", align="center", font=("Times New Roman", 30, "bold"))
 
+def power1(x, y):
+    global counter
+    global boost1
+    counter -= 100
+    boost1 = True
+    text.clear()
+    text.write(f"Killed: {counter}", align="center", font=("Times New Roman", 30, "bold"))      
 
 
-       
-goose.onclick(click)
+
+while boost1 == False:
+    if counter < 100:
+        goose.onclick(click)
+    elif counter >= 100:
+        shield.onclick(power1)
+        
+
+while boost1 == True:
+    goose.onclick(click2)
+    shield.onclick(null)
 
 window.mainloop()
 

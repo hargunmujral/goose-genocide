@@ -4,7 +4,7 @@
 # by @hargunmujral (Github)
 
 import turtle
-
+# window setup
 window = turtle.Screen()
 window.setup(600, 594)
 window.title("Goose Genocide!")
@@ -50,6 +50,7 @@ text.penup()
 text.goto(0, 200)
 text.write(f"Killed: {counter}", align="center", font=("Times New Roman", 30, "bold"))
 
+# function definitions
 
 def click(x, y):
     global counter
@@ -104,7 +105,7 @@ def power3(x, y):
     text.clear()
     text.write(f"Killed: {counter}", align="center", font=("Times New Roman", 30, "bold"))      
 
-
+# main code
 while boost1 == False and boost2 == False and boost3 == False:
     if counter < 100:
         goose.onclick(click)
